@@ -21,7 +21,13 @@ const SignIn = () => {
                 {form === formType.SIGNUP && (
                      <input type="password" placeholder="Confirm Password" className="p-5 rounded-md border border-gray-400" />
                 )}
-                <button className="bg-blue-200 p-5 rounded-md text-white text-xl" type="submit">Log In</button>
+                <button className="bg-blue-200 p-5 rounded-md text-white text-xl" type="submit">
+                    {form === formType.LOGIN ? (
+                        <>Log in</>
+                    ):(
+                        <>Sign up</>
+                    )}
+                </button>
                 {form === formType.LOGIN && (
                      <span className="text-center">Forgot Password?</span>
                 )}
