@@ -89,7 +89,7 @@ const Profile = () => {
                 </div> 
             </div>
             {isSideBarOpened && (
-                <SideBarBooking />
+                <SideBarBooking setIsSideBarOpened={setIsSideBarOpened} />
             )}
         </div>
     )

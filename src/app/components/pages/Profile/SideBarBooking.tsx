@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import { XIcon } from 'lucide-react';
 import Calendar from 'react-calendar';
 
 type ValuePiece = Date | null;
@@ -8,23 +9,23 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 const hours: string[] = [];
 const minutes: string[] = [];
 
-for (let i = 0; i < 24; i++) {
-    if (i < 10) {
-        hours[i] = `0${i}`;
+for (let hour = 0; hour < 24; hour++) {
+    if (hour < 10) {
+        hours[hour] = `0${hour}`;
     } else {
-        hours[i] = `${i}`;
+        hours[hour] = `${hour}`;
     }
 }
 
-for (let i = 0; i < 60; i++) {
-    if (i < 10) {
-        minutes[i] = `0${i}`;
+for (let minute = 0; minute < 60; minute++) {
+    if (minute < 10) {
+        minutes[minute] = `0${minute}`;
     } else {
-        minutes[i] = `${i}`
+        minutes[minute] = `${minute}`
     }
 }
 
-const SideBarBooking = () => {
+const SideBarBooking = ({ setIsSideBarOpened }: { setIsSideBarOpened: (flag: boolean) => void }) => {
     const [date, setDate] = useState<Value>(new Date());
     const [time, setTime] = useState<string>("00:00");
 
@@ -39,7 +40,10 @@ const SideBarBooking = () => {
     }
     
     return (
-        <div className="shadow-lg w-[900px] h-[100vh] p-8">
+        <div className="shadow-lg w-[900px] h-[100vh] p-8 relative">
+            <XIcon 
+                onClick={() => setIsSideBarOpened(false)}
+                className="absolute right-8 top-8 cursor-pointer bg-gray-200 rounded-full h-10 w-10 p-2" />
             <h1 className="text-3xl font-bold">Book a session</h1>
             <Calendar 
                 onChange={setDate}
@@ -66,8 +70,10 @@ const SideBarBooking = () => {
                     <div className="border-1 p-4 rounded-lg">Other Location</div>
                 </div>
             </div>
+            
+            <textarea className="border-1 p-4 rounded-lg w-full mt-4" placeholder="Additional Info (Diagnoses like ADHD or Autism, preferred learning styles etc.)" />
 
-            <button className="bg-gray-700 text-white p-2 w-full rounded-lg mt-4">Submit</button>
+            <button className="cursor-pointer bg-gray-700 text-white p-2 w-full rounded-lg mt-4">Submit</button>
         </div>
     )
 }
