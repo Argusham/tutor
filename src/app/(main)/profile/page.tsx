@@ -31,7 +31,9 @@ const Profile = () => {
     return (
         <div className="flex h-[100vh]">
             <div className="w-[35%] p-14">
-                <div className="bg-red-200 w-90 h-90 rounded-xl"></div>
+                <div className="bg-red-200 overflow-x-hidden w-90 h-90 rounded-xl">
+                    <img className="h-full w-full object-cover" src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg" width="100%" />
+                </div>
                 <div>
                     <h1 className="font-bold text-2xl mt-6 mb-2">Bio</h1>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has s traset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageM</p>
