@@ -1,5 +1,4 @@
 "use client"
-import SideBarDashboard from "./SummaryMetrics/SideBarDashboard";
 import { CurrentPageContext, CurrentPageType } from "@/app/context/CurrentDashboardPageContext";
 import SummaryMetrics from "./SummaryMetrics/SummaryMetrics";
 import { useContext, useState } from "react";
@@ -8,9 +7,11 @@ import EditProfileComponent from "./EditProfile/EditProfileComponent";
 import ManageBookingsComponent from "./ManageBookings/ManageBookingsComponent";
 import MessagingComponent from "./Messaging/MessagingComponent";
 import DashboardNavbar from "./SummaryMetrics/DashboardNavbar";
+import SideBarDashboard from "./SideBarDashboard";
+import { CurrentPage } from "@/app/constants/enums";
 
 const DashboardComponent = () => {
-    const [value, setValue] = useState<string>('summary-metrics');
+    const [value, setValue] = useState<CurrentPage>(CurrentPage.SUMMARY_METRICS);
 
     const currentPageProps: CurrentPageType = {
         value,
@@ -34,23 +35,23 @@ const DashboardRouting = () => {
 
             <div className="w-full">
                 <DashboardNavbar />
-                {value === 'summary-metrics' && (
+                {value === CurrentPage.SUMMARY_METRICS && (
                     <SummaryMetrics />
                 )}
 
-                {value === 'manage-availability' && (
+                {value === CurrentPage.MANAGE_AVAILABILITY && (
                     <ManageAvailabilityComponent />
                 )}
 
-                {value === 'edit-profile' && (
+                {value === CurrentPage.EDIT_PROFILE && (
                     <EditProfileComponent />
                 )}
 
-                {value === 'manage-bookings' && (
+                {value === CurrentPage.MANAGE_BOOKINGS && (
                     <ManageBookingsComponent />
                 )}
 
-                {value === 'messaging' && (
+                {value === CurrentPage.MESSAGING && (
                     <MessagingComponent />
                 )}
             </div>

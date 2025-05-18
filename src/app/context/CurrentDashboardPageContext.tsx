@@ -1,8 +1,9 @@
 import { createContext } from "react";
+import { CurrentPage } from "../constants/enums";
 
 export interface CurrentPageType {
-  value: string;
-  setValue: (newValue: string) => void;
+  value: CurrentPage;
+  setValue: (newValue: CurrentPage) => void;
 }
 
 // Default value (optional, useful for autocompletion)

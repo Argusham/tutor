@@ -1,3 +1,4 @@
+import { CurrentPage } from "@/app/constants/enums";
 import { CurrentPageContext } from "@/app/context/CurrentDashboardPageContext";
 import { BookImageIcon, Calendar, Flame, GaugeCircle, MessageCircle, User } from "lucide-react"
 import { useContext } from "react";
@@ -13,11 +14,11 @@ const SideBarDashboard = () => {
                 Phoenix Tutorium
             </h1>
             <ul className="text-white ml-8 mt-14 space-y-4 text-lg">
-                <li className="flex" onClick={() => setValue('summary-metrics')}><GaugeCircle className="mr-6" /> Summary Metrics</li>
-                <li className="flex" onClick={() => setValue('manage-availability')}><Calendar className="mr-6" /> Manage Availability</li>
-                <li className="flex" onClick={() => setValue('edit-profile')}><User className="mr-6" /> Edit Profile</li>
-                <li className="flex" onClick={() => setValue('messaging')}><MessageCircle className="mr-6" /> Messaging</li>
-                <li className="flex" onClick={() => setValue('manage-bookings')}><BookImageIcon className="mr-6" /> Manage Bookings</li>
+                <li className="flex" onClick={() => setValue(CurrentPage.SUMMARY_METRICS)}><GaugeCircle className="mr-6" /> Summary Metrics</li>
+                <li className="flex" onClick={() => setValue(CurrentPage.MANAGE_AVAILABILITY)}><Calendar className="mr-6" /> Manage Availability</li>
+                <li className="flex" onClick={() => setValue(CurrentPage.EDIT_PROFILE)}><User className="mr-6" /> Edit Profile</li>
+                <li className="flex" onClick={() => setValue(CurrentPage.MESSAGING)}><MessageCircle className="mr-6" /> Messaging</li>
+                <li className="flex" onClick={() => setValue(CurrentPage.MANAGE_BOOKINGS)}><BookImageIcon className="mr-6" /> Manage Bookings</li>
             </ul>
             <div className="w-full absolute bottom-8 left-8">
                 <button className="bg-blue-300 text-black rounded-lg p-4 w-[calc(100%-4rem)]">Click Me</button>
