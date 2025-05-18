@@ -7,6 +7,7 @@ import ManageAvailabilityComponent from "./ManageAvailability/ManageAvailability
 import EditProfileComponent from "./EditProfile/EditProfileComponent";
 import ManageBookingsComponent from "./ManageBookings/ManageBookingsComponent";
 import MessagingComponent from "./Messaging/MessagingComponent";
+import DashboardNavbar from "./SummaryMetrics/DashboardNavbar";
 
 const DashboardComponent = () => {
     const [value, setValue] = useState<string>('summary-metrics');
@@ -31,25 +32,28 @@ const DashboardRouting = () => {
         <div className="flex">
             <SideBarDashboard />
 
-            {value === 'summary-metrics' && (
-                <SummaryMetrics />
-            )}
+            <div className="w-full">
+                <DashboardNavbar />
+                {value === 'summary-metrics' && (
+                    <SummaryMetrics />
+                )}
 
-            {value === 'manage-availability' && (
-                <ManageAvailabilityComponent />
-            )}
+                {value === 'manage-availability' && (
+                    <ManageAvailabilityComponent />
+                )}
 
-            {value === 'edit-profile' && (
-                <EditProfileComponent />
-            )}
+                {value === 'edit-profile' && (
+                    <EditProfileComponent />
+                )}
 
-            {value === 'manage-bookings' && (
-                <ManageBookingsComponent />
-            )}
+                {value === 'manage-bookings' && (
+                    <ManageBookingsComponent />
+                )}
 
-            {value === 'messaging' && (
-                <MessagingComponent />
-            )}
+                {value === 'messaging' && (
+                    <MessagingComponent />
+                )}
+            </div>
         </div>
     )
 }

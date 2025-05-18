@@ -5,7 +5,6 @@ import DashboardNavbar from "./DashboardNavbar";
 const SummaryMetrics = () => {
     return (
         <div className="w-full">
-            <DashboardNavbar />
             <OverviewMetrics />
             <Metrics />
         </div>
