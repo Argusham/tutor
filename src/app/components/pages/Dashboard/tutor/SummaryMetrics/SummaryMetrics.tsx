@@ -1,6 +1,5 @@
 import BookingList from "./BookingList";
 import MetricsCharts from "./Charts/ChartsComponent";
-import DashboardNavbar from "./DashboardNavbar";
 
 const SummaryMetrics = () => {
     return (
@@ -11,7 +10,7 @@ const SummaryMetrics = () => {
     )
 }
 
-const OverviewMetrics = () => {
+export const OverviewMetrics = () => {
 
     return (
         <div className="grid grid-cols-4 gap-4 m-8 mt-10">
